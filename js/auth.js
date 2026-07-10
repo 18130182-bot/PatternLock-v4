@@ -1,3 +1,12 @@
+
+async function authenticate(pattern) {
+
+    console.log("authenticate が呼ばれました");
+
+    const patternString = pattern.join("-");
+
+    // ...
+}
 // ======================================
 // PatternLock-v4
 // auth.js
