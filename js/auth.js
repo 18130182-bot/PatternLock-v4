@@ -19,10 +19,10 @@ async function authenticate(pattern) {
     try {
 
         const { data, error } = await window.db
-            .from("users")
-            .select("pattern_hash")
-            .eq("username", "admin")
-            .single();
+    .from("users")
+    .select("*");
+    
+console.log(data);
 
         if (error) {
             console.error(error);
