@@ -1,70 +1,57 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン | PatternLock</title>
+// ======================================
+// PatternLock-v4
+// auth.js
+// Supabase版
+// ======================================
 
-    <link rel="stylesheet" href="css/login.css">
-</head>
+async function authenticate(pattern) {
 
-<body>
+    try {
 
-<div class="login-container">
+        const patternString = pattern.join("-");
 
-    <div class="login-card">
+        const { data, error } = await window.db
+            .from("users")
+            .select("pattern")
+            .eq("id", 1)
+            .single();
 
-        <div class="logo">
-            🔒
-        </div>
+        if (error) {
+            console.error(error);
 
-        <h1>ログイン</h1>
+            message.style.color = "#dc2626";
+            message.textContent = "サーバー接続エラー";
+            return;
+        }
 
-        <p class="subtitle">
-            登録したパターンを入力してください
-        </p>
+        if (!data) {
 
-        <div id="patternLock" class="pattern-lock">
+            message.style.color = "#dc2626";
+            message.textContent = "ユーザーがありません";
+            return;
+        }
 
-            <svg id="patternCanvas"></svg>
+        if (data.pattern === patternString) {
 
-            <div class="dot" data-id="1"></div>
-            <div class="dot" data-id="2"></div>
-            <div class="dot" data-id="3"></div>
+            message.style.color = "#16a34a";
+            message.textContent = "ログイン成功";
 
-            <div class="dot" data-id="4"></div>
-            <div class="dot" data-id="5"></div>
-            <div class="dot" data-id="6"></div>
+            setTimeout(() => {
+                location.href = "home.html";
+            }, 800);
 
-            <div class="dot" data-id="7"></div>
-            <div class="dot" data-id="8"></div>
-            <div class="dot" data-id="9"></div>
+        } else {
 
-        </div>
+            message.style.color = "#dc2626";
+            message.textContent = "パターンが違います";
+        }
 
-        <p id="message" class="message"></p>
+    } catch (e) {
 
-        <button id="loginButton" class="btn primary">
-            ログイン
-        </button>
+        console.error(e);
 
-        <button id="resetButton" class="btn secondary">
-            リセット
-        </button>
+        message.style.color = "#dc2626";
+        message.textContent = "予期しないエラー";
+    }
 
-        <a href="index.html" class="back">
-            ← トップページへ戻る
-        </a>
-
-    </div>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script src="js/supabase.js"></script>
-<script src="js/pattern.js"></script>
-<script src="js/auth.js"></script>
-
-</body>
-</html>
+}
