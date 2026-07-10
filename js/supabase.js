@@ -1,5 +1,5 @@
-const SUPABASE_URL = "あなたのProject URL";
-const SUPABASE_ANON_KEY = "あなたのAnon Public Key";
+const SUPABASE_URL = "https://kcncleosyltuhuaamque.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_hRCu-BxhlUPQcwr0KB3q_Q_00dIKXd1";
 
 const supabase = window.supabase.createClient(
     SUPABASE_URL,
