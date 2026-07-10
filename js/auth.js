@@ -5,9 +5,9 @@
 
 async function authenticate(pattern) {
 
-    try {
+    const patternString = pattern.join("-");
 
-        const patternString = pattern.join("-");
+    try {
 
         const { data, error } = await window.db
             .from("users")
@@ -26,7 +26,7 @@ async function authenticate(pattern) {
         if (!data) {
 
             message.style.color = "#dc2626";
-            message.textContent = "ユーザーがありません";
+            message.textContent = "管理者が見つかりません";
             return;
         }
 
@@ -36,22 +36,20 @@ async function authenticate(pattern) {
             message.textContent = "ログイン成功！";
 
             // 後で管理画面へ移動
-            // location.href = "home.html";
+            // location.href = "admin.html";
 
         } else {
 
             message.style.color = "#dc2626";
             message.textContent = "パターンが違います";
-
         }
 
-    } catch (e) {
+    } catch (err) {
 
-        console.error(e);
+        console.error(err);
 
         message.style.color = "#dc2626";
         message.textContent = "予期しないエラー";
-
     }
 
 }
