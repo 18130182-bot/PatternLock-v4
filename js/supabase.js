@@ -5,3 +5,17 @@ const supabase = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 );
+
+(async () => {
+
+    const { data, error } = await supabase
+        .from("users")
+        .select("*");
+
+    if (error) {
+        console.error("Supabase接続エラー", error);
+    } else {
+        console.log("Supabase接続成功", data);
+    }
+
+})();
