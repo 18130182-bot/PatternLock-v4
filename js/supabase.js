@@ -1,16 +1,15 @@
 console.log("supabase.js が読み込まれました");
 
 const SUPABASE_URL = "https://kcncleosyltuhuaamque.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_hRCu-BxhlUPQcwr0KB3q_Q_00dIKXd1";
+const SUPABASE_ANON_KEY = "あなたの Publishable Key";
 
-const supabase = window.supabase.createClient(
+window.db = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 );
 
 (async () => {
-
-    const { data, error } = await supabase
+    const { data, error } = await window.db
         .from("users")
         .select("*");
 
@@ -19,5 +18,4 @@ const supabase = window.supabase.createClient(
     } else {
         console.log("Supabase接続成功", data);
     }
-
 })();
