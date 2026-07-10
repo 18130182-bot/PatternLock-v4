@@ -55,7 +55,7 @@ async function authenticate(pattern) {
 
     } catch (err) {
 
-        console.error(err);
+        console.error("認証エラー:", error);
 
         message.style.color = "#dc2626";
         message.textContent = "予期しないエラー";
