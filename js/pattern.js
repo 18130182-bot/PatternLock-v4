@@ -255,7 +255,22 @@ document.addEventListener("touchend", () => {
 // --------------------
 // ログイン
 // --------------------
-loginButton.addEventListener("click", () => {
+if (loginButton) {
+
+    loginButton.addEventListener("click", () => {
+
+        if (pattern.length < 4) {
+
+            message.style.color = "#dc2626";
+            message.textContent = "4点以上選択してください";
+            return;
+        }
+
+        authenticate(pattern);
+
+    });
+
+}
 
     if (pattern.length < 4) {
 
@@ -273,4 +288,7 @@ loginButton.addEventListener("click", () => {
 // --------------------
 // リセット
 // --------------------
-resetButton.addEventListener("click", clearPattern);
+
+if (resetButton) {
+    resetButton.addEventListener("click", clearPattern);
+}
