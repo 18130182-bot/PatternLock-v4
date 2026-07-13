@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ホーム | PatternLock-v4</title>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🎉 ログイン成功！</h1>
+
+    <p>
+        PatternLock-v4へようこそ。
+    </p>
+
+    <div class="buttons">
+
+        <button id="logoutButton">
+            ログアウト
+        </button>
+
+        <button id="adminButton">
+            管理者ページ
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+document.getElementById("logoutButton").onclick = () => {
+    location.href = "login.html";
+};
+
+document.getElementById("adminButton").onclick = () => {
+    location.href = "admin.html";
+};
+</script>
+
+</body>
+</html>
