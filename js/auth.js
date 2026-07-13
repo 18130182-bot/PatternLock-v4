@@ -23,7 +23,9 @@ async function authenticate(pattern) {
 
         const { data, error } = await window.db
     .from("users")
-    .select("*");
+    .select("pattern_hash")
+    .eq("username", "admin")
+    .single();
     
 console.log(data);
 
@@ -42,6 +44,10 @@ console.log(data);
             return;
         }
 
+        console.log("入力:", patternString);
+console.log("DB:", data.pattern_hash);
+console.log("一致?", data.pattern_hash === patternString);
+        
         if (data.pattern_hash === patternString) {
 
             message.style.color = "#16a34a";
