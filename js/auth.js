@@ -1,10 +1,10 @@
-console.log("入力:", patternString);
-console.log("DB:", data.pattern_hash);
-console.log(data);
 
 async function authenticate(pattern) {
 
     console.log("authenticate が呼ばれました");
+    console.log("入力:", patternString);
+console.log("DB:", data.pattern_hash);
+console.log(data);
 
     const patternString = pattern.join("-");
 
