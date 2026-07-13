@@ -4,7 +4,6 @@
 // ======================================
 
 const saveButton = document.getElementById("saveButton");
-const message = document.getElementById("message");
 
 saveButton.addEventListener("click", async () => {
 
