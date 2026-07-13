@@ -12,6 +12,8 @@ async function authenticate(pattern) {
         const patternString = pattern.join("-");
 
         console.log("入力:", patternString);
+alert("入力されたパターン: " + patternString);
+        console.log("入力:", patternString);
 
         // adminユーザーを取得
         const { data, error } = await window.db
