@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>管理者ページ</title>
+
+<link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🔑 管理者ページ</h1>
+
+    <p>PatternLock-v4 管理画面</p>
+
+    <button id="changePatternButton">
+        パターンを変更
+    </button>
+
+    <button id="userButton">
+        ユーザー管理
+    </button>
+
+    <button id="homeButton">
+        ホームへ戻る
+    </button>
+
+</div>
+
+<script>
+
+document.getElementById("changePatternButton").onclick = () => {
+    location.href = "change-pattern.html";
+};
+
+document.getElementById("userButton").onclick = () => {
+    location.href = "users.html";
+};
+
+document.getElementById("homeButton").onclick = () => {
+    location.href = "home.html";
+};
+
+</script>
+
+</body>
+</html>
