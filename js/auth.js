@@ -1,3 +1,6 @@
+console.log("入力:", patternString);
+console.log("DB:", data.pattern_hash);
+console.log(data);
 
 async function authenticate(pattern) {
 
