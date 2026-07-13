@@ -134,7 +134,9 @@ function clearPattern() {
 
     svg.innerHTML = "";
 
-    message.textContent = "";
+    if (message) {
+        message.textContent = "";
+    }
 }
 
 // --------------------
@@ -161,6 +163,7 @@ dots.forEach(dot => {
     });
 
 });
+
 // --------------------
 // マウス移動
 // --------------------
@@ -272,23 +275,9 @@ if (loginButton) {
 
 }
 
-    if (pattern.length < 4) {
-
-        message.style.color = "#dc2626";
-        message.textContent = "4点以上選択してください";
-        return;
-    }
-
-      authenticate(pattern);
-
-});
-
-
-
 // --------------------
 // リセット
 // --------------------
-
 if (resetButton) {
     resetButton.addEventListener("click", clearPattern);
 }
